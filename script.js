@@ -188,7 +188,7 @@ const participaints2023 = [
     ]
 
 
-const paricipaints2024 = [
+const participaints2024 = [
     {
         "country": "Albania",
         "artist": "Besa",
@@ -382,6 +382,7 @@ liked2024 = []
 let euro2023 = 0;
 let euro2024 = 0;
 let iteration = 0;
+let country;
 
 const score2023 = document.querySelector('#score-2023')
 const score2024 = document.querySelector('#score-2024')
@@ -403,29 +404,36 @@ const round = document.querySelector('.round');
 
 
 btn2023.addEventListener('click', () => {
-    euro2023++; 
-    let country = showCountry(2023);
+    euro2023++;
+    liked2023.push(country);
+    iteration++;
+    initialization();
+    
 });
 
 btn2024.addEventListener('click', () => {
-    euro2024++; 
-    let country = showCountry(2024) 
+    euro2024++;
+    liked2024.push(country)
+    iteration++;
+    initialization();
+    
 
 });
 
-
-
-
-function showCountry(year){
+function initialization(){
     score2023.textContent = euro2023;
     score2024.textContent = euro2024;
-    let country = participaints2023[iteration]['country'];
-    if(country === "Romania") {
+    if(iteration >= participaints2023.length){
+        finish();
+    }
+    else{
+        country = participaints2023[iteration]['country'];
+    if(country == "Romania"){
         iteration++;
-        country = participaints2023[iteration]['country']
+        country = participaints2023[iteration]['country'];
     }
     const obj2023 = participaints2023[iteration];
-    const obj2024 = paricipaints2024.filter(obj => {
+    const obj2024 = participaints2024.filter(obj => {
         return obj.country == country
     })[0];
 
@@ -439,22 +447,17 @@ function showCountry(year){
     partist2024.textContent = obj2024.artist;
     psong2024.textContent = obj2024.song;
 
-    if(year == 2023){
-        liked2023.push(country)
     }
+    
 
-    if(year == 2024){
-        liked2024.push(country)
-    }
- 
-    iteration++;
-    if(iteration >= participaints2023.length){
+}
+
+
+function finish(){
+   
         btn2023.disabled = true;
         btn2024.disabled = true;
         round.removeChild(roundContainer);
-
-        console.log(liked2023);
-        console.log(liked2024);
 
         const div2023 = document.createElement('div')
         div2023.classList.add('liked');
@@ -481,7 +484,4 @@ function showCountry(year){
  
     }
 
-
-}
-
-showCountry();
+initialization();
