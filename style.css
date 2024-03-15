@@ -1,0 +1,99 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+}
+
+.app{
+    height:90%;
+    width:90%;
+    background-color: #eee;
+    border-radius: 10px;
+}
+
+.score{
+    display:flex;
+    justify-content: space-between;
+    height:30%;
+    border:2px solid black
+    
+}
+
+.label{
+    font-weight: 900;
+    font-size:32px;
+}
+
+.part2023, .part2024{
+    text-align: center;
+    width:50%;
+}
+
+#score-2023, #score-2024{
+    font-weight: 900;
+    font-size:96px;
+}
+
+.round{
+    height:50%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.round .liked {
+    width:50%;
+    padding: 20px;
+}
+
+.round.round-active{
+    display:flex;
+    justify-content: space-between;
+}
+
+.status-text{
+    font-size:48px;
+    text-align: center;
+}
+
+.round img{
+    width:227px;
+    height:227px;
+}
+
+.buttons{
+    display:flex;  
+    height:20%;
+}
+.buttons button{
+    display:inline-block;
+    width:50%;
+    flex-grow:1;
+}
+
+.country, .title-liked{
+    font-weight: 900;
+}
+
+.song{
+    font-style: italic;
+}
+
+#start{
+    display:block;
+    height:20%;
+    padding: 20px;
+    background: rgb(72, 187, 57);
+    margin:10px auto;
+}
+
+
+
+
